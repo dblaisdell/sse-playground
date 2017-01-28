@@ -18,7 +18,7 @@
 
 (defn home-page
   [request]
-  (ring-resp/response "Hello World!!!"))
+  (ring-resp/redirect "/index.html"))
 
 (defn stream-ready
   [event-chan context]
