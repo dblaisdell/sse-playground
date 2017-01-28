@@ -1,4 +1,7 @@
 # Project related
+resources/public/node_modules/
+resources/public/app/*.js
+resources/public/app/*.map
 
 # Java related
 pom.xml
@@ -35,4 +38,3 @@ repl-port
 # Builds
 out/
 build/
-
