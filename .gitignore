@@ -1,4 +1,5 @@
 # Project related
+node_modules/
 
 # Java related
 pom.xml
@@ -35,4 +36,3 @@ repl-port
 # Builds
 out/
 build/
-
