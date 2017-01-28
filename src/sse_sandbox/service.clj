@@ -11,10 +11,14 @@
   (ring-resp/response (format "Clojure %s - served from %s"
                               (clojure-version)
                               (route/url-for ::about-page))))
+(defn app-page
+  [request]
+  (ring-resp/content-type (ring-resp/resource-response "public/index.html")
+                          "text/html"))
 
 (defn home-page
   [request]
-  (ring-resp/response "Hello World!!"))
+  (ring-resp/response "Hello World!!!"))
 
 (defn stream-ready
   [event-chan context]
@@ -30,6 +34,7 @@
 
 ;; Tabular routes
 (def routes #{["/" :get (conj common-interceptors `home-page)]
+              ["/app" :get (conj common-interceptors `app-page)]
               ["/about" :get (conj common-interceptors `about-page)]
               ["/events" :get (sse/start-event-stream stream-ready)]})
 
