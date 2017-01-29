@@ -8,7 +8,7 @@ import 'rxjs/Rx';
 export class AppComponent implements OnInit {
     name = 'Angular!';
 
-    someStrings:string[] = ["A", "B"];
+    someStrings:string[] = ["A", "B", "C"];
 
     ngOnInit() {
 
