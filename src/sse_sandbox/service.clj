@@ -23,7 +23,7 @@
 (defn stream-ready
   [event-chan context]
   (dotimes [_ 20]
-    (async/>!! event-chan {:name "foo" :data (str (System/currentTimeMillis))})
+    (async/>!! event-chan {:name "message" :data (str (System/currentTimeMillis))})
     (Thread/sleep 1000))
   (async/close! event-chan))
 
@@ -75,6 +75,7 @@
               ::http/type :jetty
               ;;::http/host "localhost"
               ::http/port 8081
+              ::http/allowed-origins {:creds true :allowed-origins (constantly true)}
               ;; Options to pass to the container (Jetty)
               ::http/container-options {:h2c? true
                                         :h2? false
