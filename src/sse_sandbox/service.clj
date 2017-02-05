@@ -20,10 +20,15 @@
   [request]
   (ring-resp/redirect "/index.html"))
 
+(defn format-date-time
+  [millis]
+  (.format (java.text.SimpleDateFormat. "yyyy-MM-dd hh:mm:ss")
+           (java.util.Date. millis)))
+
 (defn stream-ready
   [event-chan context]
   (dotimes [_ 20]
-    (async/>!! event-chan {:name "message" :data (str (System/currentTimeMillis))})
+    (async/>!! event-chan {:name "message" :data (format-date-time (System/currentTimeMillis))})
     (Thread/sleep 1000))
   (async/close! event-chan))
 

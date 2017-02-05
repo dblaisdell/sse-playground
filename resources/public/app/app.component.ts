@@ -10,11 +10,11 @@ export class AppComponent implements OnInit {
 
     someStrings:string[] = ['A', 'B', 'C'];
 
-    private EVENT_URL = 'http://localhost:8081/events';
+    private EVENT_URL = '/events';
     private message: string = '0';
 
     constructor (private changeDetector: ChangeDetectorRef) {
-	console.log('A');
+
     }
 
     ngOnInit() {
